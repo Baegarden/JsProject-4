@@ -1,15 +1,14 @@
 # JsProject-4
-Scriptable을 이용한 K리그 순위·일정 위젯 만들기
+Scriptable을 이용한 K LEAGUE 순위·일정 위젯 만들기
 
 ## 기능 
-* MyTeam을 설정하여 현재순위와 다음 경기일정을 위젯으로 간편히 확인 할 수 있다.
+* MyTeam을 설정하여 현재 순위와 다음 경기일정을 위젯으로 간편히 확인 할 수 있다.
 
 
 ## 사진 
-* 순위 (Small Size))
+* 순위 (Small Size)
 * 일정 (Small Size)
-* 순위, 일정 (Medium Size)
-
+* 순위, 일정 (Medium Size)      
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/129748188-551d3b99-2a32-4fa4-9327-63bc087c3f3b.png" width="414" height="896">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748080-6c714876-d193-4c0a-ba5d-c278b7524490.png" width="414" height="896"></p> 
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/129748017-995eef2f-78e9-4ca4-b57f-b59732041c7b.png" width="414" height="896">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748056-1a122a9b-ab3e-4722-bc42-dd5663e02a49.png" width="414" height="896"></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/129751980-731938c5-cffc-4536-870d-929cf34280ad.png" width="414" height="896">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748096-363f874b-78c1-4b22-970d-d6911d222815.png" width="414" height="896"></p>
