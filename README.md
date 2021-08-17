@@ -9,7 +9,7 @@ Scriptable을 이용한 K LEAGUE 순위·일정 위젯 만들기
 * 순위 (Small Size)
 * 일정 (Small Size)
 * 순위, 일정 (Medium Size)      
-<p align="center"><img src="https://user-images.githubusercontent.com/76520025/129748188-551d3b99-2a32-4fa4-9327-63bc087c3f3b.png" width="414" height="896">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748080-6c714876-d193-4c0a-ba5d-c278b7524490.png" width="414" height="896"></p> 
+<img src="https://user-images.githubusercontent.com/76520025/129748188-551d3b99-2a32-4fa4-9327-63bc087c3f3b.png" width="414" height="896">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748080-6c714876-d193-4c0a-ba5d-c278b7524490.png" width="414" height="896">
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/129748017-995eef2f-78e9-4ca4-b57f-b59732041c7b.png" width="414" height="896">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748056-1a122a9b-ab3e-4722-bc42-dd5663e02a49.png" width="414" height="896"></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/129751980-731938c5-cffc-4536-870d-929cf34280ad.png" width="414" height="896">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748096-363f874b-78c1-4b22-970d-d6911d222815.png" width="414" height="896"></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/129748108-a874ba4c-6c1f-4cde-ae55-d67d2d2dcbbb.png" width="414" height="896">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748122-552cb91e-02e3-4365-89e2-576cf248023b.png" width="414" height="896"></p>
