@@ -43,7 +43,7 @@ const titleStack = widget.addStack()
 titleStack.layoutHorizontally()
 titleStack.backgroundColor = new Color(titleColor, 1)
 titleStack.cornerRadius = 3
-titleStack.setPadding(5, 2, 0, 1)
+titleStack.setPadding(5, 2, 0, 2)
 createStack(titleStack, '순위', 25, 1)
 createStack(titleStack, '팀', 14, 1)
 createStack(titleStack, '경기', 25, 1)
@@ -97,7 +97,7 @@ for (const item of res.groups[0].ranking){
         createStack(teamStack, `${winNum}`, 20, 0)
         createStack(teamStack, `${drawNum}`, 20, 0)
         createStack(teamStack, `${loseNum}`, 20, 0)
-        createStack(teamStack, `${point}`, 26, 0)
+        createStack(teamStack, `${point}`, 27, 0)
 
         // MyTeam 설정
         if(item.team.idInternal == myTeamId){
@@ -106,7 +106,7 @@ for (const item of res.groups[0].ranking){
                 teamStack.backgroundColor = new Color(myTeamColor, 0.2)
         } 
         const underStack = widget.addStack()
-        underStack.size = new Size(152, 1)
+        underStack.size = new Size(153, 1)
         underStack.borderColor = new Color(underBarColor, underBarOpacity)
         underStack.borderWidth = 1
     }
