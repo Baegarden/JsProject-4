@@ -1,10 +1,10 @@
 // 리그 설정
-const id= "130"
+const id = "130"
 const s = "39182"
 
 // MyTeam 설정
 // 울산:2646 전북:2631 수원삼성:2637 대구:2645 수원FC:2629 포항:2649 인천:2641 제주:2628 강원:2624 서울:2640 광주:2634 성남:2644
-const myTeamId = "2637" 
+const myTeamId = "2637"
 let myTeamColor = "#FFFF00"
 let txColor = "#FFFFFF"
 let logoColor = "#FFFFFF"
@@ -17,7 +17,7 @@ let underBarOpacity = 1
 getColor(myTeamId)
 
 const widget = new ListWidget()
-if(myTeamId != "2644")
+if (myTeamId != "2644")
     widget.backgroundColor = new Color(bgColor, 1)
 else
     widget.backgroundColor = new Color(bgColor, 0.9)
@@ -28,14 +28,14 @@ const standingStack = backgroundStack.addStack()
 standingStack.layoutVertically()
 standingStack.size = new Size(160, 160)
 const dummyStack = backgroundStack.addStack()
-dummyStack.size = new Size(15, 160)
+dummyStack.size = new Size(10, 160)
 const scheduleStack = backgroundStack.addStack()
 scheduleStack.layoutVertically()
 scheduleStack.size = new Size(155, 160)
 
 // 순위 코드 Start -----------------------------------------------------------------------------------------------
 // "K LEAGUE" Title
-const headStack = standingStack.addStack() 
+const headStack = standingStack.addStack()
 headStack.layoutHorizontally()
 headStack.size = new Size(153, 22)
 const a = headStack.addText("K ")
@@ -65,21 +65,21 @@ createStack(titleStack, '패', 20, 1)
 createStack(titleStack, '승점', 25, 1)
 
 let myTeamRanking = 0
-for (const item of res.groups[0].ranking){
-    if(item.team.idInternal == myTeamId){
+for (const item of res.groups[0].ranking) {
+    if (item.team.idInternal == myTeamId) {
         myTeamRanking = item.index
-        if(myTeamRanking < 3)
+        if (myTeamRanking < 3)
             myTeamRanking = 3
-        else if(myTeamRanking > 10)
+        else if (myTeamRanking > 10)
             myTeamRanking = 10
         break
     }
 }
 
-for (const item of res.groups[0].ranking){
+for (const item of res.groups[0].ranking) {
     const ranking = item.index
-    if(Math.abs(ranking - myTeamRanking) <= 2){
-        const teamStack = standingStack.addStack() 
+    if (Math.abs(ranking - myTeamRanking) <= 2) {
+        const teamStack = standingStack.addStack()
         teamStack.layoutHorizontally()
         teamStack.setPadding(4, 0, 0, 0)
 
@@ -96,7 +96,7 @@ for (const item of res.groups[0].ranking){
         clStack.size = new Size(2, 14)
         clStack.cornerRadius = 2
         if (ranking <= 3)
-            clStack.backgroundColor = new Color(highlightColor, 1)       
+            clStack.backgroundColor = new Color(highlightColor, 1)
         // 강등권 팀 설정
         else if (ranking >= 11)
             clStack.backgroundColor = new Color(highlightColor, 1)
@@ -112,11 +112,11 @@ for (const item of res.groups[0].ranking){
         createStack(teamStack, `${point}`, 27, 0)
 
         // MyTeam 설정
-        if(item.team.idInternal == myTeamId){
+        if (item.team.idInternal == myTeamId) {
             teamStack.backgroundColor = new Color(myTeamColor, 0.3)
-            if(myTeamId == "2644")
+            if (myTeamId == "2644")
                 teamStack.backgroundColor = new Color(myTeamColor, 0.2)
-        } 
+        }
         const underStack = standingStack.addStack()
         underStack.size = new Size(153, 1)
         underStack.borderColor = new Color(underBarColor, underBarOpacity)
@@ -127,7 +127,7 @@ for (const item of res.groups[0].ranking){
 
 // 일정 코드 Start -----------------------------------------------------------------------------------------------
 // MatchDay 데이터 얻기
-const matchDayUrl=`https://feedmonster.onefootball.com/feeds/il/en/competitions/${id}/${s}/matchdaysOverview.json`
+const matchDayUrl = `https://feedmonster.onefootball.com/feeds/il/en/competitions/${id}/${s}/matchdaysOverview.json`
 const req1 = new Request(matchDayUrl)
 const matchDayJson = await req1.loadJSON()
 
@@ -142,41 +142,41 @@ let closeMatchHours = 0
 let closeMatchMinutes = 0
 let closeMatchDayofTheWeek = 0
 
-for(const matchday of matchDayJson.matchdays){
-  const matchUrl=`https://api.onefootball.com/scores-mixer/v1/en/cn/matchdays/${matchday.id}`
-  const req2 = new Request(matchUrl)
-  const matchJson = await req2.loadJSON()
+for (const matchday of matchDayJson.matchdays) {
+    const matchUrl = `https://api.onefootball.com/scores-mixer/v1/en/cn/matchdays/${matchday.id}`
+    const req2 = new Request(matchUrl)
+    const matchJson = await req2.loadJSON()
 
-  // 예정경기 중 가장이른 경기찾기
-  for(const item of matchJson.kickoffs){
-    for(const match of item.groups[0].matches){
-      if (match.period == "PreMatch" && (match.team_home.id == myTeamId || match.team_away.id == myTeamId)){
-        const date = new Date(item.kickoff)
-        if (date.getMonth() < closeMatchMonth){
-          closeMatchHometeam = match.team_home.name
-          closeMatchAwayteam = match.team_away.name
-          closeMatchHometeamId = match.team_home.id
-          closeMatchAwayteamId = match.team_away.id
-          closeMatchMonth = date.getMonth()
-          closeMatchDay = date.getDate()
-          closeMatchHours = date.getHours()
-          closeMatchMinutes = date.getMinutes()
-          closeMatchDayofTheWeek = date.getDay()          
+    // 예정경기 중 가장이른 경기찾기
+    for (const item of matchJson.kickoffs) {
+        for (const match of item.groups[0].matches) {
+            if (match.period == "PreMatch" && (match.team_home.id == myTeamId || match.team_away.id == myTeamId)) {
+                const date = new Date(item.kickoff)
+                if (date.getMonth() < closeMatchMonth) {
+                    closeMatchHometeam = match.team_home.name
+                    closeMatchAwayteam = match.team_away.name
+                    closeMatchHometeamId = match.team_home.id
+                    closeMatchAwayteamId = match.team_away.id
+                    closeMatchMonth = date.getMonth()
+                    closeMatchDay = date.getDate()
+                    closeMatchHours = date.getHours()
+                    closeMatchMinutes = date.getMinutes()
+                    closeMatchDayofTheWeek = date.getDay()
+                }
+                else if (date.getMonth() == closeMatchMonth && date.getDate() < closeMatchDay) {
+                    closeMatchHometeam = match.team_home.name
+                    closeMatchAwayteam = match.team_away.name
+                    closeMatchHometeamId = match.team_home.id
+                    closeMatchAwayteamId = match.team_away.id
+                    closeMatchMonth = date.getMonth()
+                    closeMatchDay = date.getDate()
+                    closeMatchHours = date.getHours()
+                    closeMatchMinutes = date.getMinutes()
+                    closeMatchDayofTheWeek = date.getDay()
+                }
+            }
         }
-        else if(date.getMonth() == closeMatchMonth && date.getDate() < closeMatchDay) {
-          closeMatchHometeam = match.team_home.name
-          closeMatchAwayteam = match.team_away.name
-          closeMatchHometeamId = match.team_home.id
-          closeMatchAwayteamId = match.team_away.id
-          closeMatchMonth = date.getMonth()
-          closeMatchDay = date.getDate()
-          closeMatchHours = date.getHours()
-          closeMatchMinutes = date.getMinutes()
-          closeMatchDayofTheWeek = date.getDay()          
-        }
-      }
-    } 
-  } 
+    }
 }
 closeMatchHometeam = enToKr(closeMatchHometeam)
 closeMatchAwayteam = enToKr(closeMatchAwayteam)
@@ -184,14 +184,14 @@ closeMatchAwayteam = enToKr(closeMatchAwayteam)
 // MatchDay 날짜 출력
 const matchDayTitle = scheduleStack.addStack()
 matchDayTitle.size = new Size(155, 22)
-matchDayTitle.setPadding(4, 0, 0, 0)               
+matchDayTitle.setPadding(4, 0, 0, 0)
 let minutes = ""
 if (closeMatchMinutes < 10)
-  minutes = `0${closeMatchMinutes}`
+    minutes = `0${closeMatchMinutes}`
 else
-  minutes = `${closeMatchMinutes}`
+    minutes = `${closeMatchMinutes}`
 const DayOfTheWeek = getDayOfTheWeek(closeMatchDayofTheWeek)
-const c = matchDayTitle.addText(`${closeMatchMonth+1}.${closeMatchDay} ${DayOfTheWeek}  ${closeMatchHours}:${minutes}`)
+const c = matchDayTitle.addText(`${closeMatchMonth + 1}.${closeMatchDay} ${DayOfTheWeek}  ${closeMatchHours}:${minutes}`)
 c.font = Font.boldMonospacedSystemFont(12)
 c.textColor = new Color(txColor, 1)
 c.centerAlignText()
@@ -207,30 +207,30 @@ const homeImage = matchTeamTitle.addImage(homeTeamImage) // Hometeam Image
 homeImage.imageSize = new Size(25, 25)
 
 const hometeamNameStack = matchTeamTitle.addStack()      // Hometeam Name
-hometeamNameStack.size = new Size(45, 36) 
-hometeamNameStack.setPadding(4, 0, 0, 0)               
+hometeamNameStack.size = new Size(45, 36)
+hometeamNameStack.setPadding(4, 0, 0, 0)
 hometeamName = hometeamNameStack.addText(closeMatchHometeam)
-if(closeMatchHometeam == "수원FC" || closeMatchAwayteam == "수원FC")
-  hometeamName.font = Font.boldMonospacedSystemFont(12)
+if (closeMatchHometeam == "수원FC" || closeMatchAwayteam == "수원FC")
+    hometeamName.font = Font.boldMonospacedSystemFont(12)
 else
-  hometeamName.font = Font.boldMonospacedSystemFont(14)
+    hometeamName.font = Font.boldMonospacedSystemFont(14)
 hometeamName.textColor = new Color(txColor, 1)
 
 const vsStack = matchTeamTitle.addStack()                // "VS"
 vsStack.size = new Size(15, 36)
-vsStack.setPadding(6, 0, 0, 0)               
+vsStack.setPadding(6, 0, 0, 0)
 vs = vsStack.addText("VS")
 vs.font = Font.boldMonospacedSystemFont(10)
 vs.textColor = new Color(txColor, 1)
 
 const awayteamNameStack = matchTeamTitle.addStack()      // Away Name
 awayteamNameStack.size = new Size(45, 36)
-awayteamNameStack.setPadding(4, 0, 0, 0)               
+awayteamNameStack.setPadding(4, 0, 0, 0)
 awayteamName = awayteamNameStack.addText(closeMatchAwayteam)
-if(closeMatchHometeam == "수원FC" || closeMatchAwayteam == "수원FC")
-  awayteamName.font = Font.boldMonospacedSystemFont(12)
-else 
-  awayteamName.font = Font.boldMonospacedSystemFont(14)
+if (closeMatchHometeam == "수원FC" || closeMatchAwayteam == "수원FC")
+    awayteamName.font = Font.boldMonospacedSystemFont(12)
+else
+    awayteamName.font = Font.boldMonospacedSystemFont(14)
 awayteamName.textColor = new Color(txColor, 1)
 
 const awayImage = matchTeamTitle.addImage(awayTeamImage) // Away Image
@@ -239,7 +239,7 @@ awayImage.imageSize = new Size(25, 25)
 // MatchDay 구장정보 출력
 const matchstadiumTitle = scheduleStack.addStack()
 matchstadiumTitle.size = new Size(155, 22)
-matchstadiumTitle.setPadding(4, 0, 0, 0)               
+matchstadiumTitle.setPadding(4, 0, 0, 0)
 const matchstadium = getMatchStadium(closeMatchHometeam)
 const d = matchstadiumTitle.addText(matchstadium)
 d.font = Font.boldMonospacedSystemFont(10)
@@ -255,7 +255,7 @@ function createStack(stack, text, width, isTitle) {
     const elementText = element.addText(text)
     elementText.font = Font.mediumRoundedSystemFont(11)
     elementText.textColor = new Color(txColor, 1)
-    if (isTitle == 1){
+    if (isTitle == 1) {
         elementText.textColor = new Color(titleTxColor, 1)
         elementText.font = Font.mediumRoundedSystemFont(10)
     }
@@ -289,66 +289,66 @@ function enToKr(name) {
 }
 
 // 울산:2646 전북:2631 수원삼성:2637 대구:2645 수원FC:2629 포항:2649 인천:2641 제주:2628 강원:2624 서울:2640 광주:2634 성남:2644
-function getColor(id){
-    if (id == "2646"){
+function getColor(id) {
+    if (id == "2646") {
         bgColor = "#014099"
         titleColor = "#1D2D5C"
         underBarColor = "#F9BE00"
     }
-    else if (id == "2631"){
+    else if (id == "2631") {
         bgColor = "#85D641"
         titleColor = "#276A52"
         underBarColor = "#F9BE00"
         myTeamColor = "#276A52"
     }
-    else if (id == "2637"){
+    else if (id == "2637") {
         bgColor = "#194996"
         titleColor = "#E71A0F"
         underBarColor = "#FFFFFF"
         underBarOpacity = 0.5
     }
-    else if (id == "2645"){
+    else if (id == "2645") {
         bgColor = "#8FCFF1"
         titleColor = "#0072BC"
         underBarColor = "#FFFFFF"
         underBarOpacity = 0.5
     }
-    else if (id == "2629"){
+    else if (id == "2629") {
         bgColor = "#013A70"
         titleColor = "#EB0028"
         underBarColor = "#EB0028"
     }
-    else if (id == "2649"){
+    else if (id == "2649") {
         bgColor = "#AD181D"
         titleColor = "#000000"
         underBarColor = "#000000"
     }
-    else if (id == "2641"){
+    else if (id == "2641") {
         bgColor = "#2E57A6"
         titleColor = "#000000"
         underBarColor = "#000000"
         logoColor = "FBC808"
         highlightColor = "FBC808"
     }
-    else if (id == "2628"){
+    else if (id == "2628") {
         bgColor = "#F58125"
         titleColor = "#E51937"
         underBarColor = "#FFFFFF"
         underBarOpacity = 0.5
     }
-    else if (id == "2624"){
+    else if (id == "2624") {
         bgColor = "#DD5828"
         titleColor = "#006058"
         underBarColor = "#FABF00"
     }
-    else if (id == "2640"){
+    else if (id == "2640") {
         bgColor = "#B5191A"
         titleColor = "#000000"
         underBarColor = "#A28848"
         logoColor = "#A28848"
         highlightColor = "#A28848"
     }
-    else if (id == "2634"){
+    else if (id == "2634") {
         bgColor = "#FFD24F"
         titleColor = "#C41230"
         underBarColor = "#C41230"
@@ -358,7 +358,7 @@ function getColor(id){
         myTeamColor = "#C41230"
         underBarOpacity = 0.5
     }
-    else if (id == "2644"){
+    else if (id == "2644") {
         bgColor = "#000000"
         titleColor = "#FFFFFF"
         underBarColor = "#FFFFFF"
@@ -368,24 +368,24 @@ function getColor(id){
     }
 }
 
-function getDayOfTheWeek(day){
+function getDayOfTheWeek(day) {
     if (day == 0)
-      return "(일)"
-    else if(day == 1)
-      return "(월)"
-    else if(day == 2)
-      return "(화)"
-    else if(day == 3)
-      return "(수)"  
-    else if(day == 4)
-      return "(목)"
-    else if(day == 5)
-      return "(금)"
-    else 
-      return "(토)"
+        return "(일)"
+    else if (day == 1)
+        return "(월)"
+    else if (day == 2)
+        return "(화)"
+    else if (day == 3)
+        return "(수)"
+    else if (day == 4)
+        return "(목)"
+    else if (day == 5)
+        return "(금)"
+    else
+        return "(토)"
 }
 
-function getMatchStadium(homeTeam){
+function getMatchStadium(homeTeam) {
     if (homeTeam == "울산")
         return "울산 문수 축구경기장"
     else if (homeTeam == "전북")
