@@ -1,5 +1,6 @@
 # JsProject-4
-📱 <strong>Scriptable을 이용한 K LEAGUE 순위·일정 위젯 만들기</strong><br><br>
+📱 <strong>Scriptable을 이용한 K LEAGUE 순위·일정 위젯 만들기</strong>
+<br><br><br>
 
 평소 스마트폰의 위젯을 통해 날씨를 확인하는 것이 굉장히 편리하다고 느꼈습니다.<br>
 또한 위젯은 사람마다 각각 다른 개성을 표현하는 디자인 요소로서 사용될 수 있습니다.<br>
