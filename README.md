@@ -6,12 +6,12 @@
 K리그의 부흥을 기원하며, K리그 여러팀의 팬분들을 위해 제작하였습니다.
 <br><br><br>
 
-### 기능 
+> ### 기능 
 * MY TEAM을 설정하여 각 팀별 테마 적용 
 * 현재 순위와 다음 경기일정을 위젯으로 간편히 확인 가능
 <br><br><br>
 
-### 사진 
+> ### 사진 
 </br>     
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/130098470-972176d7-28d6-4f30-a750-75a23fce4f08.png" width="45%" height="45%">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/130098439-40f06d84-7643-4a24-8586-0d9e85b974ad.png" width="45%" height="45%"></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/129748017-995eef2f-78e9-4ca4-b57f-b59732041c7b.png" width="45%" height="45%">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748056-1a122a9b-ab3e-4722-bc42-dd5663e02a49.png" width="45%" height="45%"></p>
