@@ -3,13 +3,11 @@
 <br><br><br>
 
 ## 기능 
-* MyTeam을 설정하여 현재 순위와 다음 경기일정을 위젯으로 간편히 확인 할 수 있다.
+* MyTeam을 설정하여 현재 순위와 다음 경기일정을 위젯으로 간편히 확인 가능
+* 각 팀별 테마 적용
 <br><br><br>
 
 ## 사진 
-* 순위 (Small Size)
-* 일정 (Small Size)
-* 순위, 일정 (Medium Size)
 </br>     
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/130098470-972176d7-28d6-4f30-a750-75a23fce4f08.png" width="45%" height="45%">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/130098439-40f06d84-7643-4a24-8586-0d9e85b974ad.png" width="45%" height="45%"></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/76520025/129748017-995eef2f-78e9-4ca4-b57f-b59732041c7b.png" width="45%" height="45%">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/76520025/129748056-1a122a9b-ab3e-4722-bc42-dd5663e02a49.png" width="45%" height="45%"></p>
