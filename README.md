@@ -1,5 +1,5 @@
 # JsProject-4
-Scriptable을 이용한 K LEAGUE 순위·일정 위젯 만들기
+📱 Scriptable을 이용한 K LEAGUE 순위·일정 위젯 만들기
 <br><br><br>
 
 ## 기능 
